@@ -5,6 +5,7 @@ import Header from './layouts/Header';
 import ProductList from './products/ProductList';
 import Bank from './reducer/Bank';
 import Cart from './products/Cart';
+import CartProvider from './context/CartProvider';
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
     <>
       <section className="app">
         {/* <Bank /> */}
+        {/* Provider로 감싸면 내부의 컴포넌트는 children이 된다 */}
+        <CartProvider>
         <BrowserRouter>
         <Header />
           <Routes>
@@ -27,6 +30,7 @@ function App() {
             <Route path='/cart' element={<Cart />} />
           </Routes>
         </BrowserRouter>
+        </CartProvider>
         {/* <Memo /> */}
         {/* <Todos /> */}
 

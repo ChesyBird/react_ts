@@ -1,4 +1,4 @@
-import type { Product } from "../context/CartContext";
+import { useCart, type Product } from "../context/CartContext";
 
 // products배열에 상품 정보를 정의
 const products: Product[] = [
@@ -8,15 +8,18 @@ const products: Product[] = [
 ]
 
 const ProductList = () => {
-
+    const { dispatch } = useCart();
+    
     return (
         <div>
             <h2>상품 리스트</h2>
             <ul>
                 {products.map(product => (
                     <li key={product.id}>
-                        {product.name} - {product.price.toLocaleString()}원
-                        <button>담기</button>
+                        {product.name} : {product.price.toLocaleString()}원
+                        <button onClick={() => {
+                            dispatch({type: "ADD", product})
+                        }}>담기</button>
                     </li>
                 ))}
             </ul>

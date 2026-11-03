@@ -22,7 +22,9 @@ export type CartAction =
 // Context에 담을 값의 타입
 interface CartContextType {
     cart: CartItem[],
-    dispatch: React.Dispatch<CartAction>
+    dispatch: React.Dispatch<CartAction>,
+    totalCnt: number,  // 총 수량
+    totalPrice: number // 총 가격
 }
 
 // Context 생성
@@ -31,6 +33,7 @@ export const CartContext = createContext<CartContextType | null>(null);
 // 커스텀 훅 - useCart()
 export function useCart(): CartContextType{
     const context = useContext(CartContext)
+    // 오류처리 없으면 에러남!
     if(!context){
         throw new Error("useCart는 CartProvider 안에서만 사용할 수 있습니다.")
     }

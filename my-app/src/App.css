@@ -1,4 +1,11 @@
-
+ul{
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+li{
+    padding: 10px;
+}
 .app{margin-top: 20px;}
 .header a {margin: 16px;}
 h2{ margin: 20px;}
