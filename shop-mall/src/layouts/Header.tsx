@@ -4,7 +4,9 @@ const Header = () => {
 
     return (
         <header className="header">
-            <h1>SPACE SHOP</h1>
+            <h1>
+                <Link to='/'>SPACE SHOP</Link>
+            </h1>
             <Link to='/'>상품 목록</Link>
         </header>
     )
