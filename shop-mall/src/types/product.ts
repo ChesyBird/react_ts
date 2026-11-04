@@ -3,11 +3,19 @@ export type Category = "마우스" | "키보드" | "모니터" | "주변기기"
 
 // Product 타입 정의
 export interface Product{
-    id: number,
-    pName: string,
-    category: Category,
-    price: number,
-    description: string
+    id: number;
+    pName: string;
+    category: Category;
+    price: number;
+    description: string;
+}
+
+// 상품 등록 폼 타입 정의
+export interface ProductForm{
+    pName: string;
+    category: Category;
+    price: number;
+    description: string;
 }
 
 // 상품 등록시 입력받는 값
