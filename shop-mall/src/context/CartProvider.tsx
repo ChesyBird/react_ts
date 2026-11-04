@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { CartContext } from "./CartContext";
 import type { CartItem } from "../types/cart";
+import { useProduct } from "./ProductContext";
 
 const CartProvider = ({children}: {children: React.ReactNode}) => {
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    // 상품 가져오기
+    const { products } = useProduct();
 
     // 장바구니에 상품 추가
     const addToCart = (productId: number, qty: number) => {
@@ -21,10 +24,27 @@ const CartProvider = ({children}: {children: React.ReactNode}) => {
                 return [...prevItems, {productId, qty}]
             }
         })
-    }
+    } // addToCart() 닫기
+
+    // 총 수량 계산
+    const totalQuantity =
+        cartItems.reduce((sum, item) => sum + item.qty, 0);
+    
+    // 총 가격 계산(상품가격 * 수량)
+    const totalPrice =
+        cartItems.reduce((sum, item) => {
+            // productId로 상품정보 찾기
+            const product = products.find(p => p.id === item.productId);
+            return sum + (product ? product.price * item.qty : 0);
+        }, 0);
 
     return(
-        <CartContext.Provider value={{cartItems, addToCart}}>
+        <CartContext.Provider value={{
+            cartItems,
+            addToCart,
+            totalQuantity,
+            totalPrice
+        }}>
             {children}
         </CartContext.Provider>
     )

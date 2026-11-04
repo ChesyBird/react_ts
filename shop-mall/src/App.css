@@ -100,6 +100,7 @@ main { max-width: 960px; margin: 0 auto; padding: 24px; }
 
 /* 장바구니 담기 버튼 */
 .product-card button,
+.product-detail button,
 .product-detail_cart {
   font: inherit; /* 부모의 글꼴을 물려받음 */
   margin: 8px;
