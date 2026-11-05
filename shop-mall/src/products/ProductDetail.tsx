@@ -25,7 +25,7 @@ const ProductDetail = () => {
             <h2>{product?.pName}</h2>
             <p className="product-detail_price">{product?.price.toLocaleString()} 원</p>
             <p className="product-detail_desc">{product?.description}</p>
-            <button onClick={() => {
+            <button className="product-detail_cart" onClick={() => {
                 addToCart(product?.id, 1);
                 alert("상품이 장바구니에 담겼습니다."
             )}}>담기</button>
