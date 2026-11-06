@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { UserContext } from "./UserContext";
-import type { LoginForm, NewUser, User } from "../types/user";
 import { initialUsers } from "../datas/users";
+import type { LoginForm, NewUser, User } from "../types/user";
+import { UserContext } from "./UserContext";
 
 const UserProvider = ({children} : {children: React.ReactNode}) => {
     const [ users, setUsers ] = useState<User[]>(initialUsers);

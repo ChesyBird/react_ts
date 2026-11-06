@@ -11,6 +11,7 @@ import Cart from './products/Cart'
 import UserProvider from './context/UserProvider'
 import SignUp from './users/SignUp'
 import SignIn from './users/SignIn'
+import AdminPage from './users/AdminPage'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
               <Route path='/product/:id' element={<ProductDetail />} />
               <Route path='/product/new' element={<AddProduct />} />
               <Route path='/cart' element={<Cart />} />
+              <Route path='/admin' element={<AdminPage />} />
               <Route path='/signin' element={<SignIn />} />
               <Route path='/signup' element={<SignUp />} />
             </Routes>
